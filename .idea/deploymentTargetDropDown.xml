@@ -6,23 +6,12 @@
         <type value="RUNNING_DEVICE_TARGET" />
         <deviceKey>
           <Key>
-            <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="C:\Users\youssef\.android\avd\Nexus_5X_API_29.avd" />
+            <type value="SERIAL_NUMBER" />
+            <value value="adb-PNNBAISOS4EIZ9MV-TyyoKc._adb-tls-connect._tcp" />
           </Key>
         </deviceKey>
       </Target>
     </runningDeviceTargetSelectedWithDropDown>
-    <targetSelectedWithDropDown>
-      <Target>
-        <type value="QUICK_BOOT_TARGET" />
-        <deviceKey>
-          <Key>
-            <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="C:\Users\youssef\.android\avd\Nexus_5X_API_29.avd" />
-          </Key>
-        </deviceKey>
-      </Target>
-    </targetSelectedWithDropDown>
-    <timeTargetWasSelectedWithDropDown value="2022-12-27T04:51:23.927861700Z" />
+    <timeTargetWasSelectedWithDropDown value="2022-12-27T06:03:54.902568Z" />
   </component>
 </project>

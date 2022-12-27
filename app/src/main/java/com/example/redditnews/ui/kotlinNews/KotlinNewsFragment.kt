@@ -11,10 +11,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.example.redditnews.Constants.DATA_OF_ARTICLE
+import com.example.redditnews.Constants.TITLE_OF_ARTICLE
 import com.example.redditnews.R
 import com.example.redditnews.adapters.NewsRecyclerAdapter
 import com.example.redditnews.databinding.FragmentKotlinNewsBinding
 import com.example.redditnews.pojo.Data
+import com.example.redditnews.ui.articleDetails.ArticleDetailsFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 
@@ -63,7 +66,13 @@ class KotlinNewsFragment : Fragment() {
     private fun setOnClickOnRecyclerItem() {
         newsRecyclerAdapter.setOnItemClickListener(object : NewsRecyclerAdapter.OnClickOnItem{
             override fun onClick1(data: Data) {
-                Toast.makeText(context,data.title,Toast.LENGTH_SHORT).show()
+                //Pass Data Of Article To ArticleDetailsFragment
+                val args = Bundle()
+                args.putParcelable(DATA_OF_ARTICLE, data)
+                args.putString(TITLE_OF_ARTICLE,data.title)
+                val articleDetailsFragment = ArticleDetailsFragment()
+                articleDetailsFragment.arguments = args
+                activity!!.supportFragmentManager.beginTransaction().replace(R.id.flFragment, articleDetailsFragment).addToBackStack(null).commit()
             }
         })
     }
