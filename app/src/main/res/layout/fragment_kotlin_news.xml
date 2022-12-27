@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+         <variable
+             name="viewModel"
+             type="com.example.redditnews.ui.kotlinNews.KotlinNewsViewModel" />
+    </data>
+    <!--SwipeRefreshLayout To Refresh Data -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh_homeFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.kotlinNews.KotlinNewsFragment"
+        app:onRefreshListener="@{() -> viewModel.onRefresh()}"
+        app:refreshing="@{viewModel.mutableStateFlowIsRefreshing}"
+        >
+        <!--ConstraintLayout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <!--ShimmerFrameLayout -->
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/categoriesShimmer_homeFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            showShimmerOnLoading="@{viewModel.states}"
+            >
+            <!--LinearLayout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <include layout="@layout/shimmer_news" />
+
+                <include layout="@layout/shimmer_news" />
+
+                <include layout="@layout/shimmer_news" />
+
+                <include layout="@layout/shimmer_news" />
+
+                <include layout="@layout/shimmer_news" />
+
+
+
+            </LinearLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+        <!--RecyclerView Appears List Of The Articles  -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_kotlinNewsFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

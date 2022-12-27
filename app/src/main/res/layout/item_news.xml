@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+       <variable
+           name="data"
+           type="com.example.redditnews.pojo.Data" />
+    </data>
+    <!--CardView -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        app:cardCornerRadius="@dimen/_5sdp">
+        <!--FrameLayout -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--ImageView Appears Article Image -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_110sdp"
+                android:contentDescription="@string/article_image"
+                imageUrl="@{data.thumbnail}"
+                android:visibility="@{data.thumbnail.equals(``) ? View.GONE : View.VISIBLE}"
+                android:scaleType="fitXY" />
+            <!--TextView Appears Name Of Article-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_9ssp"
+                android:layout_margin="@dimen/_5sdp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/black"
+                android:text="@{data.title}" />
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
